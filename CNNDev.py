@@ -1,12 +1,5 @@
 from random import random
-
-def forwardMultiplyGate(x,y):
-  return x*y
-
-def printOuts(bestOut,bestX,bestY):
-  print("Best out is: " + str(bestOut))
-  print("BestX is: " + str(bestX))
-  print("BestY is: " + str(bestY))
+from lib import *
 # Random local search
 
 x = -2
@@ -29,3 +22,9 @@ for i in range(0,100):
     bestY = yTry
 
 printOuts(bestOut,bestX,bestY)
+
+# Gradient Descent it looks like
+
+gradX = compDerv(x,y,forwardMultiplyGate,x)
+gradY = compDerv(x,y,forwardMultiplyGate,y)
+print(gradX,gradY)
