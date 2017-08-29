@@ -23,8 +23,21 @@ for i in range(0,100):
 
 printOuts(bestOut,bestX,bestY)
 
-# Gradient Descent it looks like
+# Gradient Descent with numerical Gradient
+bestOut = -float('inf')
+bestX = x
+bestY = y
 
-gradX = compDerv(x,y,forwardMultiplyGate,x)
-gradY = compDerv(x,y,forwardMultiplyGate,y)
-print(gradX,gradY)
+stepSize = 0.01
+for i in range(0,100):
+  gradX = compDerv(x,y,forwardMultiplyGate,x)
+  gradY = compDerv(x,y,forwardMultiplyGate,y)
+  bestX = bestX + stepSize*gradX
+  bestY = bestY + stepSize*gradY
+  cur = forwardMultiplyGate(bestX,bestY)
+  if cur > bestOut:
+    bestOut = cur
+    bestX = xTry
+    bestY = yTry
+
+printOuts(bestOut,bestX,bestY)
