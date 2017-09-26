@@ -8,7 +8,7 @@ def printOuts(bestOut,bestX,bestY):
   
 def compDerv(x,y,fXY,wrt,h=0.000000001):
   out = fXY(x,y)
-  if(x==wrt):
+  if(id(x)==id(wrt)):
     return (fXY(x+h,y)-out)/h
   else:
     return (fXY(x,y+h)-out)/h
